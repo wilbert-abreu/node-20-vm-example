@@ -1,0 +1,26 @@
+{
+	"name": "vm-test",
+	"version": "1.0.0",
+	"description": "",
+	"type": "module",
+	"main": "index.ts",
+	"bin": "./index.ts",
+	"scripts": {
+		"start": "node --loader=ts-node/esm --max-old-space-size=1536 --env-file=.env index.js",
+		"dev": "node --loader=ts-node/esm --env-file=.env --no-node-snapshot --watch index.js",
+		"test": "node --loader=ts-node/esm --env-file=.env --test --watch --experimental-test-coverage --test-reporter=spec __tests__/**",
+		"lint:dev": "biome check --apply .",
+		"lint:ci": "biome --apply ci ."
+	},
+	"author": "",
+	"license": "ISC",
+	"devDependencies": {
+		"@biomejs/biome": "1.2.2",
+		"ts-node": "^10.9.1"
+	},
+	"dependencies": {
+		"better-sqlite3": "^9.0.0",
+		"isolated-vm": "^4.6.0",
+		"vm2": "^3.9.19"
+	}
+}
